@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.14.3 on darwin)" generated="2026-02-10T22:08:40.898036" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/Users/renatolima/repo_visual/tests">
+<suite id="s1-s1" name="Lists" source="/Users/renatolima/repo_visual/tests/lists">
+<suite id="s1-s1-s1" name="Lists Tests" source="/Users/renatolima/repo_visual/tests/lists/lists_tests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-10T22:08:41.108641" level="INFO">Iniciando testes de Listas</msg>
+<arg>Iniciando testes de Listas</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-10T22:08:41.108432" elapsed="0.000279"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Lists Screen Should Display Header" line="18">
+<kw name="Setup Test With Authenticated User" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:41.110277" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:41.110025" elapsed="3.453565"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:44.564607" elapsed="0.605096"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.170006" elapsed="0.007938"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:41.109748" elapsed="4.068445"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:45.180265" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.179619" elapsed="0.054743"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:45.178579" elapsed="0.055963"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:45.235388" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.235156" elapsed="0.000270"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:45.236098" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.235574" elapsed="0.058231"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:45.234758" elapsed="0.059187"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.294104" elapsed="0.302452"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.596792" elapsed="0.051865"/>
+</kw>
+<doc>Configura teste com usuário autenticado</doc>
+<status status="PASS" start="2026-02-10T22:08:41.109446" elapsed="4.539379"/>
+</kw>
+<kw name="Verify Lists Screen Is Displayed" owner="lists_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTS_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.649500" elapsed="0.270764"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.560322" level="INFO">Element 'css:[data-testid="header"]' is displayed.</msg>
+<arg>${LISTS_HEADER}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.920543" elapsed="0.641248"/>
+</kw>
+<doc>Verifica se a tela de listas está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:45.649104" elapsed="0.912835"/>
+</kw>
+<kw name="Verify Header Title Is QuickList" owner="lists_page">
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.587323" elapsed="0.106440"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.842908" level="INFO">Element 'css:[data-testid="header-title"]' contains text 'QuickList'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.693984" elapsed="0.149096"/>
+</kw>
+<arg>${LISTS_HEADER_TITLE}</arg>
+<arg>QuickList</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="PASS" start="2026-02-10T22:08:46.564697" elapsed="0.278515"/>
+</kw>
+<doc>Verifica se o título do header é QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:46.564230" elapsed="0.279429"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.848036" elapsed="0.113793"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:46.845794" elapsed="0.116179"/>
+</kw>
+<doc>Verifica se o header está exibido corretamente</doc>
+<tag>lists</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:41.108890" elapsed="5.853165"/>
+</test>
+<test id="s1-s1-s1-t2" name="Lists Screen Should Display Logout Button" line="25">
+<kw name="Setup Test With Authenticated User" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.964773" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.964367" elapsed="2.690539"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:49.658008" elapsed="0.552075"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.211160" elapsed="0.001300"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:46.963959" elapsed="3.248701"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.213870" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.213259" elapsed="0.005797"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:50.212936" elapsed="0.006511"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:50.222021" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.220457" elapsed="0.001802"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.222940" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.222446" elapsed="0.008100"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:50.219663" elapsed="0.011010"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.230830" elapsed="0.057573"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.288648" elapsed="0.016052"/>
+</kw>
+<doc>Configura teste com usuário autenticado</doc>
+<status status="PASS" start="2026-02-10T22:08:46.963468" elapsed="3.341397"/>
+</kw>
+<kw name="Verify Logout Button Is Displayed" owner="lists_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.338010" level="INFO">Element 'css:[data-testid="logout-button"]' is displayed.</msg>
+<arg>${LISTS_LOGOUT_BUTTON}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.305515" elapsed="0.032624"/>
+</kw>
+<doc>Verifica se o botão de logout está visível</doc>
+<status status="PASS" start="2026-02-10T22:08:50.305111" elapsed="0.033314"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.339453" elapsed="0.237474"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:50.338920" elapsed="0.240198"/>
+</kw>
+<doc>Verifica se o botão de logout está visível</doc>
+<tag>lists</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:46.962841" elapsed="3.616412"/>
+</test>
+<test id="s1-s1-s1-t3" name="Lists Screen Should Display FAB" line="31">
+<kw name="Setup Test With Authenticated User" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.593292" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.592636" elapsed="2.136826"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:52.730460" elapsed="0.319497"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.050168" elapsed="0.000975"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:50.590833" elapsed="2.460412"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.052079" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.051693" elapsed="0.003402"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:53.051419" elapsed="0.003752"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:53.055649" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.055521" elapsed="0.000154"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.056070" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.055775" elapsed="0.003018"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:53.055297" elapsed="0.003564"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.058959" elapsed="0.039877"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.099046" elapsed="0.008710"/>
+</kw>
+<doc>Configura teste com usuário autenticado</doc>
+<status status="PASS" start="2026-02-10T22:08:50.582530" elapsed="2.525341"/>
+</kw>
+<kw name="Verify FAB Is Displayed" owner="lists_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.128249" level="INFO">Element 'css:[data-testid="fab-add-list"]' is displayed.</msg>
+<arg>${LISTS_FAB}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.108412" elapsed="0.019951"/>
+</kw>
+<doc>Verifica se o FAB está visível</doc>
+<status status="PASS" start="2026-02-10T22:08:53.108052" elapsed="0.020839"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.129929" elapsed="0.114105"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:53.129541" elapsed="0.114637"/>
+</kw>
+<doc>Verifica se o FAB está visível</doc>
+<tag>lists</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:50.579945" elapsed="2.664302"/>
+</test>
+<test id="s1-s1-s1-t4" name="Lists Screen Should Show Empty State When No Lists" line="37">
+<kw name="Setup Test With Authenticated User" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.246146" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.245905" elapsed="1.886654"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.148619" elapsed="0.361213"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.510034" elapsed="0.000907"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:53.245576" elapsed="2.265471"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.511816" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.511463" elapsed="0.003001"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:55.511218" elapsed="0.003311"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:55.514943" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.514825" elapsed="0.000139"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.515282" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.515050" elapsed="0.002723"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:55.514636" elapsed="0.003200"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.517914" elapsed="0.036243"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.554365" elapsed="0.008150"/>
+</kw>
+<doc>Configura teste com usuário autenticado</doc>
+<status status="PASS" start="2026-02-10T22:08:53.245239" elapsed="2.317464"/>
+</kw>
+<kw name="Verify Empty State Is Displayed" owner="lists_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTS_EMPTY_STATE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.563154" elapsed="0.014196"/>
+</kw>
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.577876" elapsed="0.008245"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.598014" level="INFO">Element 'css:[data-testid="empty-state"]' contains text 'Nenhuma lista ainda.'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.586273" elapsed="0.011817"/>
+</kw>
+<arg>${LISTS_EMPTY_STATE}</arg>
+<arg>${MSG_EMPTY_LISTS}</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="PASS" start="2026-02-10T22:08:55.577570" elapsed="0.020605"/>
+</kw>
+<doc>Verifica se o estado vazio está exibido</doc>
+<status status="PASS" start="2026-02-10T22:08:55.562902" elapsed="0.035331"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.598671" elapsed="0.082262"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:55.598441" elapsed="0.082591"/>
+</kw>
+<doc>Verifica mensagem de estado vazio</doc>
+<tag>empty-state</tag>
+<tag>lists</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:53.244677" elapsed="2.436403"/>
+</test>
+<test id="s1-s1-s1-t5" name="Lists Screen Should Display Existing Lists" line="47">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.682279" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.682110" elapsed="1.409329"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.092106" elapsed="0.485923"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.593662" elapsed="0.018457"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:55.681918" elapsed="1.930543"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:57.615924" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.615004" elapsed="0.011694"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:57.613146" elapsed="0.013822"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:57.628833" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.628417" elapsed="0.000468"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:57.630167" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.629108" elapsed="0.007079"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:57.627299" elapsed="0.009184"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:57.637487" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.637296" elapsed="0.000228"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:57.638154" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.637712" elapsed="0.004507"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:57.636872" elapsed="0.005522"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:57.643195" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.642944" elapsed="0.000291"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:57.643844" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.643403" elapsed="0.005524"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:57.642582" elapsed="0.006491"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.649235" elapsed="0.012325"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.662466" elapsed="0.055039"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:08:55.681719" elapsed="2.035998"/>
+</kw>
+<kw name="Verify Lists Screen Is Displayed" owner="lists_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTS_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.718661" elapsed="0.021671"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:57.760173" level="INFO">Element 'css:[data-testid="header"]' is displayed.</msg>
+<arg>${LISTS_HEADER}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.740832" elapsed="0.019756"/>
+</kw>
+<doc>Verifica se a tela de listas está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:57.718029" elapsed="0.043381"/>
+</kw>
+<kw name="Verify Empty State Is Not Displayed" owner="lists_page">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.783007" level="INFO">Element 'css:[data-testid="empty-state"]' did not exist.</msg>
+<arg>${LISTS_EMPTY_STATE}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:57.762579" elapsed="10.020536"/>
+</kw>
+<doc>Verifica se o estado vazio NÃO está exibido</doc>
+<status status="PASS" start="2026-02-10T22:08:57.761999" elapsed="10.021211"/>
+</kw>
+<kw name="Verify List Count" owner="lists_page">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<msg time="2026-02-10T22:09:07.803581" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.803273" elapsed="0.000350">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.804995" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.803111" elapsed="0.001909">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805135" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802947" elapsed="0.002209">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805256" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802785" elapsed="0.002490">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805372" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802626" elapsed="0.002766">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805488" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802463" elapsed="0.003045">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805602" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802308" elapsed="0.003312">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805714" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.802147" elapsed="0.003585">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805823" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801985" elapsed="0.003857">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.805952" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801698" elapsed="0.004292">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806113" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801500" elapsed="0.004632">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806247" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801341" elapsed="0.004924">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806357" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801178" elapsed="0.005196">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806466" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.801015" elapsed="0.005468">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806573" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800858" elapsed="0.005732">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806678" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800701" elapsed="0.005995">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806785" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800539" elapsed="0.006264">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806889" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800376" elapsed="0.006530">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.806992" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800200" elapsed="0.006811">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807097" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.800035" elapsed="0.007083">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807203" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.799877" elapsed="0.007353">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807315" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.799708" elapsed="0.007626">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807443" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.799463" elapsed="0.008004">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807558" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.799146" elapsed="0.008454">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807770" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798959" elapsed="0.008831">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807875" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798794" elapsed="0.009100">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.807979" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798619" elapsed="0.009377">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808078" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798455" elapsed="0.009641">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808177" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798283" elapsed="0.009912">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808277" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.798109" elapsed="0.010187">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808380" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.796181" elapsed="0.012216">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808477" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.796023" elapsed="0.012471">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808573" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.795858" elapsed="0.012732">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808668" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.795690" elapsed="0.012995">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808761" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.795520" elapsed="0.013259">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.808900" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.795323" elapsed="0.013600">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809018" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.795010" elapsed="0.014058">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809199" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.794797" elapsed="0.014420">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809295" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.794637" elapsed="0.014675">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809388" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.794474" elapsed="0.014932">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809502" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.794308" elapsed="0.015212">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809600" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.794148" elapsed="0.015469">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809692" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793986" elapsed="0.015723">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809806" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793823" elapsed="0.016000">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809898" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793653" elapsed="0.016262">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.809989" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793493" elapsed="0.016514">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.810081" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793333" elapsed="0.016766">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.810170" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793168" elapsed="0.017020">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.810259" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.793009" elapsed="0.017268">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.810781" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.792736" elapsed="0.018075">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.810892" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.792498" elapsed="0.018424">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811046" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.792323" elapsed="0.018741">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811133" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.792155" elapsed="0.018996">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811220" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791987" elapsed="0.019250">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811305" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791816" elapsed="0.019506">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811388" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791654" elapsed="0.019751">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811472" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791485" elapsed="0.020004">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811554" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791319" elapsed="0.020252">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811635" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.791151" elapsed="0.020502">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811716" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.790986" elapsed="0.020748">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811802" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.790822" elapsed="0.020997">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.811882" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.790656" elapsed="0.021244">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812281" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.790430" elapsed="0.021875">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812379" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.790087" elapsed="0.022315">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812487" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789905" elapsed="0.022600">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812576" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789745" elapsed="0.022849">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812656" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789582" elapsed="0.023092">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812735" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789418" elapsed="0.023335">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812815" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789254" elapsed="0.023579">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812891" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.789092" elapsed="0.023816">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.812970" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788926" elapsed="0.024061">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813045" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788765" elapsed="0.024297">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813119" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788597" elapsed="0.024540">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813194" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788433" elapsed="0.024778">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813268" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788259" elapsed="0.025026">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813349" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.788072" elapsed="0.025295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813450" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.787740" elapsed="0.025758">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813576" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.787524" elapsed="0.026070">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813652" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.787356" elapsed="0.026313">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813726" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.787190" elapsed="0.026553">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813796" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.787019" elapsed="0.026794">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813865" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786856" elapsed="0.027026">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.813933" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786688" elapsed="0.027261">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814004" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786519" elapsed="0.027501">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814071" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786348" elapsed="0.027739">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814138" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786183" elapsed="0.027971">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814210" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.786017" elapsed="0.028210">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814276" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.785850" elapsed="0.028456">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814362" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.785685" elapsed="0.028695">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814458" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.785420" elapsed="0.029064">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814541" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.785104" elapsed="0.029477">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814693" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784918" elapsed="0.029792">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814760" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784747" elapsed="0.030031">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814831" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784585" elapsed="0.030263">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814895" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784419" elapsed="0.030493">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.814959" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784251" elapsed="0.030725">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.815022" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.784078" elapsed="0.030960">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.815085" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.783899" elapsed="0.031202">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.815150" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${LIST_CARD}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.783685" elapsed="0.031481">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:07.815276" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<arg>2</arg>
+<doc>Verifica quantidade de listas</doc>
+<status status="FAIL" start="2026-02-10T22:09:07.783388" elapsed="0.031908">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<errors>
+<msg time="2026-02-10T22:09:07.815589" level="ERROR">Maximum limit of started keywords and control structures exceeded.
+
+Try --help for usage information.</msg>
+</errors>
+</robot>

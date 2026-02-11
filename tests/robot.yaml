@@ -1,0 +1,30 @@
+# Configuração do Robot Framework para QuickList
+# Execute com: robot --argumentfile robot.yaml tests/
+
+# Diretório de saída para relatórios
+--outputdir=reports
+
+# Nome do relatório
+--name=QuickList Test Suite
+
+# Log level
+--loglevel=INFO
+
+# Variáveis globais
+--variable=BROWSER:chrome
+--variable=HEADLESS:False
+--variable=BASE_URL:http://localhost:5173
+
+# Tags para excluir (se necessário)
+# --exclude=skip
+
+# Timeout global
+--timeout=60s
+
+# Captura de screenshot em falhas
+--listener=robotframework_seleniumlibrary.ScreenshotListener
+
+# Formato de saída
+--log=log.html
+--report=report.html
+--output=output.xml

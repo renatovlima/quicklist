@@ -1,0 +1,23 @@
+# Robot Framework e dependências para testes do QuickList
+# Instalar com: pip install -r requirements.txt
+
+# Robot Framework - framework de automação de testes
+robotframework==7.0
+
+# SeleniumLibrary - biblioteca Selenium para Robot Framework
+robotframework-seleniumlibrary==6.2.0
+
+# Selenium WebDriver
+selenium==4.16.0
+
+# WebDriver Manager - gerenciamento automático de drivers
+webdriver-manager==4.0.1
+
+# Bibliotecas auxiliares
+robotframework-pythonlibcore==4.3.0
+
+# Para relatórios avançados (opcional)
+robotframework-metrics==3.3.3
+
+# Para execução paralela (opcional)
+robotframework-pabot==2.16.0

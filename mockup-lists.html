@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup - QuickList - Minhas Listas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .phone-frame {
+      width: 375px;
+      height: 812px;
+      background: #000;
+      border-radius: 50px;
+      padding: 12px;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #F9FAFB;
+      border-radius: 40px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .notch {
+      width: 150px;
+      height: 30px;
+      background: #000;
+      border-radius: 0 0 20px 20px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .header {
+      background: #2563EB;
+      padding: 16px 20px;
+      margin-top: -10px;
+      padding-top: 26px;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .content {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .list-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .list-card-content {
+      padding: 16px 20px;
+    }
+
+    .list-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 4px;
+    }
+
+    .list-progress {
+      font-size: 13px;
+      color: #9CA3AF;
+    }
+
+    .list-progress.complete {
+      color: #10B981;
+    }
+
+    .list-actions {
+      display: flex;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    .list-action {
+      flex: 1;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9CA3AF;
+    }
+
+    .list-action:first-child {
+      border-right: 1px solid #F3F4F6;
+    }
+
+    .fab {
+      position: absolute;
+      bottom: 50px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #2563EB;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .home-indicator {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F9FAFB;
+    }
+
+    .home-bar {
+      width: 134px;
+      height: 5px;
+      background: #000;
+      border-radius: 3px;
+    }
+
+    .mockup-label {
+      text-align: center;
+      margin-top: 24px;
+      color: #fff;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .progress-mini {
+      height: 4px;
+      background: #E5E7EB;
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .progress-mini-fill {
+      height: 100%;
+      background: #10B981;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="notch"></div>
+
+        <div class="header">
+          <h1 class="header-title">QuickList</h1>
+        </div>
+
+        <div class="content">
+          <!-- Lista 1 -->
+          <div class="list-card">
+            <div class="list-card-content">
+              <div class="list-name">Lista Semanal</div>
+              <div class="list-progress">3 de 8 itens comprados</div>
+              <div class="progress-mini">
+                <div class="progress-mini-fill" style="width: 37.5%"></div>
+              </div>
+            </div>
+            <div class="list-actions">
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </div>
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lista 2 -->
+          <div class="list-card">
+            <div class="list-card-content">
+              <div class="list-name">Churrasco Sabado</div>
+              <div class="list-progress">0 de 12 itens comprados</div>
+              <div class="progress-mini">
+                <div class="progress-mini-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="list-actions">
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </div>
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lista 3 -->
+          <div class="list-card">
+            <div class="list-card-content">
+              <div class="list-name">Farmacia</div>
+              <div class="list-progress complete">5 de 5 itens comprados</div>
+              <div class="progress-mini">
+                <div class="progress-mini-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="list-actions">
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </div>
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lista 4 -->
+          <div class="list-card">
+            <div class="list-card-content">
+              <div class="list-name">Material Escolar</div>
+              <div class="list-progress">2 de 7 itens comprados</div>
+              <div class="progress-mini">
+                <div class="progress-mini-fill" style="width: 28.5%"></div>
+              </div>
+            </div>
+            <div class="list-actions">
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </div>
+              <div class="list-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAB -->
+        <div class="fab">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </div>
+
+        <div class="home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup-label">QuickList - Tela de Listas</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+datasources:5fa41fe41932b9c6289474ee731e3c081fb87385
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:b3343796c16080080450ff80160ed21990296038
+--suite Tests.List Detail.List Detail Tests
+--suite Tests.Lists.Lists Tests
+--suite Tests.Login.Login Tests
+--suite Tests.Persistence.Persistence Tests
+--suite Tests.Shopping Mode.Shopping Mode Tests

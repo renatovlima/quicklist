@@ -1,0 +1,37 @@
+==============================================================================
+Tests                                                                         
+==============================================================================
+Tests.Login                                                                   
+==============================================================================
+Tests.Login.Login Tests :: Testes da tela de Login do QuickList Cobertura: ...
+==============================================================================
+Login Screen Should Display Logo :: Verifica se o logo está visíve... | PASS |
+------------------------------------------------------------------------------
+Login Screen Should Display App Title :: Verifica se o título Quic... | PASS |
+------------------------------------------------------------------------------
+Login Screen Should Display Subtitle :: Verifica se o subtítulo es... | PASS |
+------------------------------------------------------------------------------
+Login Screen Should Display Google Sign In Button :: Verifica se o... | PASS |
+------------------------------------------------------------------------------
+Successful Login Should Redirect To Lists Screen :: Verifica redir... | PASS |
+------------------------------------------------------------------------------
+User Data Should Be Stored In LocalStorage After Login :: Verifica... | PASS |
+------------------------------------------------------------------------------
+Authenticated User Should Be Redirected To Lists :: Usuário autent... | PASS |
+------------------------------------------------------------------------------
+Unauthenticated User Should See Login Screen :: Usuário não autent... | PASS |
+------------------------------------------------------------------------------
+Login Screen Should Have Mobile Layout :: Verifica layout mobile d... | PASS |
+------------------------------------------------------------------------------
+Login Screen Should Center Content :: Verifica se o conteúdo está ... | PASS |
+------------------------------------------------------------------------------
+Tests.Login.Login Tests :: Testes da tela de Login do QuickList Co... | PASS |
+10 tests, 10 passed, 0 failed
+==============================================================================
+Tests.Login                                                           | PASS |
+10 tests, 10 passed, 0 failed
+==============================================================================
+Tests                                                                 | PASS |
+10 tests, 10 passed, 0 failed
+==============================================================================
+Output:  /Users/renatolima/repo_visual/pabot_results/2/output.xml

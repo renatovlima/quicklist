@@ -1,0 +1,3002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.14.3 on darwin)" generated="2026-02-10T22:09:08.342895" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/Users/renatolima/repo_visual/tests">
+<suite id="s1-s1" name="Shopping Mode" source="/Users/renatolima/repo_visual/tests/shopping_mode">
+<suite id="s1-s1-s1" name="Shopping Mode Tests" source="/Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-10T22:09:08.508095" level="INFO">Iniciando testes de Modo Compra</msg>
+<arg>Iniciando testes de Modo Compra</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-10T22:09:08.507928" elapsed="0.000223"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Shopping Mode Should Display Header" line="19">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:08.509301" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:08.509124" elapsed="1.625207"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.135233" elapsed="0.354189"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.489715" elapsed="0.001123"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:08.508924" elapsed="1.982087"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.492068" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.491556" elapsed="0.004084"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:10.491239" elapsed="0.004486"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:10.496243" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.496092" elapsed="0.000178"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.496654" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.496363" elapsed="0.003113"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:10.495857" elapsed="0.003701"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:10.500239" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.500067" elapsed="0.000195"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.500609" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.500357" elapsed="0.002790"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:10.499698" elapsed="0.003510"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:10.503590" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.503494" elapsed="0.000118"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.503930" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.503710" elapsed="0.002768"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:10.503314" elapsed="0.003221"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.506620" elapsed="0.034192"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.540983" elapsed="0.007952"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:08.508697" elapsed="2.040337"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:10.549846" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.549710" elapsed="0.000164"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:10.549930" elapsed="0.000088"/>
+</return>
+<msg time="2026-02-10T22:09:10.550253" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:10.549505" elapsed="0.000789"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.550766" elapsed="0.015255"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.566218" elapsed="0.014748"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.581331" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.581135" elapsed="0.042914"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:10.550464" elapsed="0.073689"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:10.549227" elapsed="0.074977"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.624930" elapsed="0.010792"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.635868" elapsed="0.010619"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.646797" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.646626" elapsed="0.031075"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:10.624639" elapsed="0.053161"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:10.624378" elapsed="0.053471"/>
+</kw>
+<kw name="Verify Shopping Mode Screen Is Displayed" owner="shopping_mode_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SHOPPING_MODE_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.678234" elapsed="0.010456"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.699079" level="INFO">Element 'css:[data-testid="header"]' is displayed.</msg>
+<arg>${SHOPPING_MODE_HEADER}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.688841" elapsed="0.010306"/>
+</kw>
+<doc>Verifica se a tela de modo compra está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:10.677993" elapsed="0.021229"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.699673" elapsed="0.084600"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:10.699449" elapsed="0.084931"/>
+</kw>
+<doc>Verifica se o header está exibido</doc>
+<tag>shopping-mode</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:09:08.508282" elapsed="2.276154"/>
+</test>
+<test id="s1-s1-s1-t2" name="Shopping Mode Should Display Title" line="27">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:10.785717" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:10.785546" elapsed="1.724430"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.510479" elapsed="0.350941"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.861813" elapsed="0.001584"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:10.785350" elapsed="2.078237"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:12.864909" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.864383" elapsed="0.004574"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:12.863891" elapsed="0.005159"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:12.870089" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.869591" elapsed="0.000644"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:12.871037" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.870493" elapsed="0.004657"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:12.869210" elapsed="0.006046"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:12.876013" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.875826" elapsed="0.000235"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:12.876633" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.876210" elapsed="0.003967"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:12.875437" elapsed="0.004824"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:12.881229" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.880968" elapsed="0.000401"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:12.882569" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.881634" elapsed="0.005750"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:12.880576" elapsed="0.007024"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.888246" elapsed="0.010087"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.898980" elapsed="0.066891"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:10.785112" elapsed="2.180870"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:12.966993" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.966812" elapsed="0.000208"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:12.967083" elapsed="0.000074"/>
+</return>
+<msg time="2026-02-10T22:09:12.967262" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:12.966516" elapsed="0.000766"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.967625" elapsed="0.014170"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.982040" elapsed="0.014880"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:12.997329" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:12.997092" elapsed="0.045951"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:12.967394" elapsed="0.075815"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:12.966241" elapsed="0.077036"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.044165" elapsed="0.011754"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.056078" elapsed="0.011053"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:13.067453" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.067271" elapsed="0.032238"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:13.043775" elapsed="0.055827"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:13.043458" elapsed="0.056193"/>
+</kw>
+<kw name="Verify Shopping Mode Title" owner="shopping_mode_page">
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.100265" elapsed="0.011016"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:13.123448" level="INFO">Element 'css:[data-testid="header-title"]' contains text 'Modo Compra'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.111522" elapsed="0.012008"/>
+</kw>
+<arg>${SHOPPING_MODE_TITLE}</arg>
+<arg>Modo Compra</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="PASS" start="2026-02-10T22:09:13.100043" elapsed="0.023568"/>
+</kw>
+<doc>Verifica título do modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:13.099785" elapsed="0.023877"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.124116" elapsed="0.078782"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:13.123879" elapsed="0.079125"/>
+</kw>
+<doc>Verifica se o título está correto</doc>
+<tag>shopping-mode</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:09:10.784754" elapsed="2.418305"/>
+</test>
+<test id="s1-s1-s1-t3" name="Shopping Mode Should Display Back Button" line="35">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:13.204322" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:13.204159" elapsed="1.741831"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:14.946722" elapsed="0.352884"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.300064" elapsed="0.001704"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:13.203960" elapsed="2.098004"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.303432" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.302844" elapsed="0.005300"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:15.302370" elapsed="0.005896"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:15.308948" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.308796" elapsed="0.000179"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.309444" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.309078" elapsed="0.004203"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:15.308446" elapsed="0.004968"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:15.314013" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.313879" elapsed="0.000167"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.314554" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.314157" elapsed="0.003431"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:15.313603" elapsed="0.004055"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:15.318074" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.317972" elapsed="0.000126"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.318435" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.318188" elapsed="0.002934"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:15.317790" elapsed="0.003393"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.321270" elapsed="0.009403"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.331112" elapsed="0.071455"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:13.203738" elapsed="2.198932"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:15.403438" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.403304" elapsed="0.000157"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:15.403513" elapsed="0.000059"/>
+</return>
+<msg time="2026-02-10T22:09:15.403666" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:15.403106" elapsed="0.000579"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.403976" elapsed="0.013770"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.417902" elapsed="0.014435"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.433101" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.432647" elapsed="0.049749"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:15.403781" elapsed="0.078721"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:15.402832" elapsed="0.079721"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.483185" elapsed="0.011157"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.494515" elapsed="0.010359"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.505150" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.504996" elapsed="0.031918"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:15.482985" elapsed="0.054036"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:15.482717" elapsed="0.054357"/>
+</kw>
+<kw name="Verify Back Button Is Displayed">
+<msg time="2026-02-10T22:09:15.537384" level="FAIL">Multiple keywords with name 'Verify Back Button Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Back Button Is Displayed
+    shopping_mode_page.Verify Back Button Is Displayed</msg>
+<status status="FAIL" start="2026-02-10T22:09:15.537298" elapsed="0.000134">Multiple keywords with name 'Verify Back Button Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Back Button Is Displayed
+    shopping_mode_page.Verify Back Button Is Displayed</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.537941" elapsed="0.082134"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:15.537712" elapsed="0.082491"/>
+</kw>
+<doc>Verifica se o botão voltar está visível</doc>
+<tag>shopping-mode</tag>
+<tag>ui</tag>
+<status status="FAIL" start="2026-02-10T22:09:13.203377" elapsed="2.416883">Multiple keywords with name 'Verify Back Button Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Back Button Is Displayed
+    shopping_mode_page.Verify Back Button Is Displayed</status>
+</test>
+<test id="s1-s1-s1-t4" name="Shopping Mode Should Display Progress Bar" line="43">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:15.621540" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:15.621372" elapsed="1.847757"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.469713" elapsed="0.348446"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.818613" elapsed="0.001580"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:15.621175" elapsed="2.199227"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:17.821686" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.821157" elapsed="0.005190"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:17.820719" elapsed="0.005769"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:17.827231" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.827052" elapsed="0.000212"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:17.827965" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.827398" elapsed="0.003964"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:17.826685" elapsed="0.004747"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:17.831904" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.831791" elapsed="0.000137"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:17.832364" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.832032" elapsed="0.004149"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:17.831565" elapsed="0.004684"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:17.836675" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.836564" elapsed="0.000134"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:17.837038" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.836783" elapsed="0.003190"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:17.836365" elapsed="0.003670"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.840148" elapsed="0.007050"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.847506" elapsed="0.073200"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:15.620937" elapsed="2.299881"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:17.922054" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.921885" elapsed="0.000193"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:17.922129" elapsed="0.000061"/>
+</return>
+<msg time="2026-02-10T22:09:17.922361" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:17.921516" elapsed="0.000879"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.922783" elapsed="0.013760"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.936706" elapsed="0.016773"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:17.953873" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:17.953655" elapsed="0.045720"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:17.922535" elapsed="0.076942"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:17.921127" elapsed="0.078403"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:18.000140" elapsed="0.011742"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:18.012045" elapsed="0.011470"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:18.023864" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:18.023663" elapsed="0.033152"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:17.999931" elapsed="0.056983"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:17.999672" elapsed="0.057294"/>
+</kw>
+<kw name="Verify Progress Bar Is Displayed">
+<msg time="2026-02-10T22:09:18.057209" level="FAIL">Multiple keywords with name 'Verify Progress Bar Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Progress Bar Is Displayed
+    shopping_mode_page.Verify Progress Bar Is Displayed</msg>
+<status status="FAIL" start="2026-02-10T22:09:18.057140" elapsed="0.000112">Multiple keywords with name 'Verify Progress Bar Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Progress Bar Is Displayed
+    shopping_mode_page.Verify Progress Bar Is Displayed</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:18.057719" elapsed="0.088826"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:18.057508" elapsed="0.089167"/>
+</kw>
+<doc>Verifica se a barra de progresso está visível</doc>
+<tag>shopping-mode</tag>
+<tag>ui</tag>
+<status status="FAIL" start="2026-02-10T22:09:15.620564" elapsed="2.526171">Multiple keywords with name 'Verify Progress Bar Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Progress Bar Is Displayed
+    shopping_mode_page.Verify Progress Bar Is Displayed</status>
+</test>
+<test id="s1-s1-s1-t5" name="Shopping Mode Should Display Pending Section" line="55">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:18.148080" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:18.147837" elapsed="1.657635"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:19.805846" elapsed="0.346032"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.152338" elapsed="0.001556"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:18.147639" elapsed="2.006413"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.155234" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.154709" elapsed="0.005082"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:20.154317" elapsed="0.005607"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:20.160564" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.160416" elapsed="0.000177"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.161079" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.160698" elapsed="0.003694"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:20.160114" elapsed="0.004346"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:20.164830" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.164733" elapsed="0.000149"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.165198" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.164966" elapsed="0.002861"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:20.164565" elapsed="0.003317"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:20.168235" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.168139" elapsed="0.000119"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.168566" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.168349" elapsed="0.002890"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:20.167983" elapsed="0.003368"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.171460" elapsed="0.009073"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.180926" elapsed="0.071301"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:18.147410" elapsed="2.104923"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:20.253112" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.252984" elapsed="0.000151"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:20.253187" elapsed="0.000059"/>
+</return>
+<msg time="2026-02-10T22:09:20.253332" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:20.252793" elapsed="0.000557"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.253654" elapsed="0.013719"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.267497" elapsed="0.014316"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.282125" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.281951" elapsed="0.042423"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:20.253460" elapsed="0.071025"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:20.252502" elapsed="0.072033"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.325309" elapsed="0.010699"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.336163" elapsed="0.010427"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.346853" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.346707" elapsed="0.031008"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:20.324974" elapsed="0.052851"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:20.324692" elapsed="0.053184"/>
+</kw>
+<kw name="Verify Pending Section Is Displayed" owner="shopping_mode_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.388467" level="INFO">Element 'css:[data-testid="pending-section"]' is displayed.</msg>
+<arg>${PENDING_SECTION}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.378270" elapsed="0.010271"/>
+</kw>
+<doc>Verifica se seção de pendentes está visível</doc>
+<status status="PASS" start="2026-02-10T22:09:20.378025" elapsed="0.010595"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.389065" elapsed="0.081008"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:20.388829" elapsed="0.081367"/>
+</kw>
+<doc>Verifica se a seção de pendentes está visível</doc>
+<tag>sections</tag>
+<tag>shopping-mode</tag>
+<status status="PASS" start="2026-02-10T22:09:18.147035" elapsed="2.323212"/>
+</test>
+<test id="s1-s1-s1-t6" name="Shopping Mode Should Display Bought Section" line="63">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:20.471498" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:20.471331" elapsed="1.643351"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.115254" elapsed="0.349771"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.465461" elapsed="0.001507"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:20.471143" elapsed="1.995988"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.468325" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.467815" elapsed="0.004688"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:22.467426" elapsed="0.005216"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:22.473355" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.473174" elapsed="0.000223"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.473969" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.473529" elapsed="0.003815"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:22.472840" elapsed="0.004587"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:22.477886" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.477769" elapsed="0.000141"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.478318" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.478015" elapsed="0.002959"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:22.477559" elapsed="0.003482"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:22.481402" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.481300" elapsed="0.000123"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.481767" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.481514" elapsed="0.002772"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:22.481142" elapsed="0.003223"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.484476" elapsed="0.009230"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.494209" elapsed="0.067857"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:20.470913" elapsed="2.091254"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:22.562935" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.562800" elapsed="0.000158"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:22.563008" elapsed="0.000060"/>
+</return>
+<msg time="2026-02-10T22:09:22.563162" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:22.562613" elapsed="0.000568"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.563472" elapsed="0.013600"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.577213" elapsed="0.013955"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.591465" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.591294" elapsed="0.041974"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:22.563275" elapsed="0.070104"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:22.562333" elapsed="0.071129"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.634090" elapsed="0.010625"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.644867" elapsed="0.010157"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.655331" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.655153" elapsed="0.031475"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:22.633876" elapsed="0.052856"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:22.633619" elapsed="0.053165"/>
+</kw>
+<kw name="Verify Bought Section Is Displayed" owner="shopping_mode_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.697555" level="INFO">Element 'css:[data-testid="bought-section"]' is displayed.</msg>
+<arg>${BOUGHT_SECTION}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.687305" elapsed="0.010319"/>
+</kw>
+<doc>Verifica se seção de comprados está visível</doc>
+<status status="PASS" start="2026-02-10T22:09:22.686953" elapsed="0.010746"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.698138" elapsed="0.082350"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:22.697909" elapsed="0.082698"/>
+</kw>
+<doc>Verifica se a seção de comprados está visível</doc>
+<tag>sections</tag>
+<tag>shopping-mode</tag>
+<status status="PASS" start="2026-02-10T22:09:20.470537" elapsed="2.310120"/>
+</test>
+<test id="s1-s1-s1-t7" name="Pending Section Should Show Correct Title" line="71">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:22.781933" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:22.781765" elapsed="1.525675"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.308189" elapsed="0.366331"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.674725" elapsed="0.001181"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:22.781565" elapsed="1.894492"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.677195" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.676709" elapsed="0.004169"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:24.676371" elapsed="0.004651"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:24.682266" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.681830" elapsed="0.000513"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.682932" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.682464" elapsed="0.005097"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:24.681258" elapsed="0.006472"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:24.688576" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.688348" elapsed="0.000260"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.689098" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.688715" elapsed="0.003420"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:24.687968" elapsed="0.004243"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:24.692943" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.692766" elapsed="0.000205"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.693438" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.693089" elapsed="0.003617"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:24.692352" elapsed="0.004456"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.696967" elapsed="0.008005"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.705261" elapsed="0.072382"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:22.781324" elapsed="1.996423"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:24.778511" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.778379" elapsed="0.000154"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:24.778588" elapsed="0.000057"/>
+</return>
+<msg time="2026-02-10T22:09:24.778732" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:24.778189" elapsed="0.000564"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.779056" elapsed="0.015651"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.794901" elapsed="0.016130"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.811448" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.811218" elapsed="0.061905"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:24.778856" elapsed="0.094371"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:24.777921" elapsed="0.095360"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.873974" elapsed="0.011028"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.885162" elapsed="0.010823"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:24.896260" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.896110" elapsed="0.033153"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:24.873683" elapsed="0.055687"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:24.873428" elapsed="0.055993"/>
+</kw>
+<kw name="Verify Pending Section Title" owner="shopping_mode_page">
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:24.930046" elapsed="0.010300"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:25.335812" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-10T22:09:25.335972" level="FAIL">Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="FAIL" start="2026-02-10T22:09:24.940493" elapsed="0.397343">Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.</status>
+</kw>
+<arg>${PENDING_SECTION_TITLE}</arg>
+<arg>Pendentes</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="FAIL" start="2026-02-10T22:09:24.929818" elapsed="0.408250">Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.</status>
+</kw>
+<doc>Verifica título da seção de pendentes</doc>
+<status status="FAIL" start="2026-02-10T22:09:24.929565" elapsed="0.408581">Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:25.338605" elapsed="0.082029"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:25.338373" elapsed="0.082375"/>
+</kw>
+<doc>Seção de pendentes deve ter título correto</doc>
+<tag>sections</tag>
+<tag>shopping-mode</tag>
+<status status="FAIL" start="2026-02-10T22:09:22.780953" elapsed="2.639847">Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.</status>
+</test>
+<test id="s1-s1-s1-t8" name="Bought Section Should Show Correct Title" line="79">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:25.422103" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:25.421931" elapsed="1.416174"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:26.838881" elapsed="0.345197"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.184488" elapsed="0.001706"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:25.421720" elapsed="1.764675"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.187634" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.187109" elapsed="0.004752"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:27.186679" elapsed="0.005356"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:27.192664" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.192510" elapsed="0.000183"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.193171" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.192797" elapsed="0.003552"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:27.192219" elapsed="0.004206"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:27.197227" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.197061" elapsed="0.000197"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.197738" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.197379" elapsed="0.003592"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:27.196551" elapsed="0.004503"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:27.201486" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.201381" elapsed="0.000138"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.201973" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.201680" elapsed="0.002678"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:27.201181" elapsed="0.003239"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.204557" elapsed="0.006973"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.211880" elapsed="0.066056"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:25.421485" elapsed="1.856555"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:27.278831" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.278697" elapsed="0.000157"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:27.278903" elapsed="0.000060"/>
+</return>
+<msg time="2026-02-10T22:09:27.279052" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:27.278492" elapsed="0.000578"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.279371" elapsed="0.013682"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.293209" elapsed="0.013954"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.307460" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.307297" elapsed="0.042212"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:27.279165" elapsed="0.070467"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:27.278206" elapsed="0.071479"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.350334" elapsed="0.010517"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.361000" elapsed="0.010709"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.372051" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.371866" elapsed="0.031368"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:27.350117" elapsed="0.053221"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:27.349848" elapsed="0.053569"/>
+</kw>
+<kw name="Verify Bought Section Title" owner="shopping_mode_page">
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.404055" elapsed="0.010367"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.456846" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-10T22:09:27.456986" level="FAIL">Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="FAIL" start="2026-02-10T22:09:27.414575" elapsed="0.042962">Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.</status>
+</kw>
+<arg>${BOUGHT_SECTION_TITLE}</arg>
+<arg>Comprados</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="FAIL" start="2026-02-10T22:09:27.403841" elapsed="0.053904">Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.</status>
+</kw>
+<doc>Verifica título da seção de comprados</doc>
+<status status="FAIL" start="2026-02-10T22:09:27.403575" elapsed="0.054246">Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.458263" elapsed="0.082472"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:27.458042" elapsed="0.082805"/>
+</kw>
+<doc>Seção de comprados deve ter título correto</doc>
+<tag>sections</tag>
+<tag>shopping-mode</tag>
+<status status="FAIL" start="2026-02-10T22:09:25.421109" elapsed="2.119791">Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.</status>
+</test>
+<test id="s1-s1-s1-t9" name="Pending Items Should Be In Pending Section" line="91">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:27.542156" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:27.541990" elapsed="1.552477"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.094927" elapsed="0.342813"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.438004" elapsed="0.001011"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:27.541798" elapsed="1.897329"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.440023" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.439609" elapsed="0.003564"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:29.439320" elapsed="0.003919"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:29.443689" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.443567" elapsed="0.000147"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.444072" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.443804" elapsed="0.002969"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:29.443355" elapsed="0.003475"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:29.447202" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.447108" elapsed="0.000115"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.447527" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.447304" elapsed="0.002686"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:29.446937" elapsed="0.003112"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:29.450385" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.450293" elapsed="0.000112"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.450689" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.450483" elapsed="0.002599"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:29.450144" elapsed="0.002990"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.453261" elapsed="0.008697"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.462303" elapsed="0.072987"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:27.541565" elapsed="1.993840"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:29.536204" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.536068" elapsed="0.000159"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:29.536283" elapsed="0.000064"/>
+</return>
+<msg time="2026-02-10T22:09:29.536442" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:29.535867" elapsed="0.000594"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.536774" elapsed="0.013385"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.550310" elapsed="0.014291"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.564933" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.564752" elapsed="0.041636"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:29.536567" elapsed="0.069921"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:29.535586" elapsed="0.070949"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.607122" elapsed="0.012474"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.619747" elapsed="0.010189"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:29.630221" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.630054" elapsed="0.030426"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:29.606919" elapsed="0.053664"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:29.606673" elapsed="0.053960"/>
+</kw>
+<kw name="Verify Item Is In Pending Section" owner="shopping_mode_page">
+<kw name="Get Pending Item By Name" owner="shopping_mode_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:29.661365" level="INFO">${locator} = xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "${item_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:29.661233" elapsed="0.000155"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:29.661432" elapsed="0.000048"/>
+</return>
+<msg time="2026-02-10T22:09:29.661564" level="INFO">${locator} = xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]</msg>
+<var>${locator}</var>
+<arg>${item_name}</arg>
+<doc>Retorna locator do item pendente pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:29.661039" elapsed="0.000544"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:39.757127" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-10T22:09:39.757263" level="FAIL">Element with locator 'xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]' not found.</msg>
+<arg>${locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-10T22:09:29.661666" elapsed="10.097201">Element with locator 'xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]' not found.</status>
+</kw>
+<arg>Arroz</arg>
+<doc>Verifica se item está na seção de pendentes</doc>
+<status status="FAIL" start="2026-02-10T22:09:29.660779" elapsed="10.098287">Element with locator 'xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]' not found.</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:39.759514" elapsed="0.105440"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:39.759291" elapsed="0.105780"/>
+</kw>
+<doc>Itens pendentes devem estar na seção correta</doc>
+<tag>items</tag>
+<tag>shopping-mode</tag>
+<status status="FAIL" start="2026-02-10T22:09:27.541190" elapsed="12.323929">Element with locator 'xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]' not found.</status>
+</test>
+<test id="s1-s1-s1-t10" name="Bought Items Should Be In Bought Section" line="99">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:39.866451" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:39.866225" elapsed="1.978852"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:41.845702" elapsed="0.345361"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.191557" elapsed="0.001708"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:39.866031" elapsed="2.327515"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.194877" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.194295" elapsed="0.005091"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:42.193850" elapsed="0.005643"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:42.200215" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.200034" elapsed="0.000209"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.200765" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.200365" elapsed="0.003965"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:42.199678" elapsed="0.004758"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:42.204956" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.204833" elapsed="0.000158"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.205440" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.205086" elapsed="0.004471"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:42.204584" elapsed="0.005120"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:42.210325" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.210189" elapsed="0.000166"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.210872" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.210465" elapsed="0.003736"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:42.209897" elapsed="0.004382"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.214375" elapsed="0.009431"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.224132" elapsed="0.069284"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:39.865803" elapsed="2.427720"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:42.294310" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.294180" elapsed="0.000157"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:42.294385" elapsed="0.000058"/>
+</return>
+<msg time="2026-02-10T22:09:42.294529" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:42.293982" elapsed="0.000566"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.294850" elapsed="0.013846"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.308846" elapsed="0.014157"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.323297" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.323138" elapsed="0.043095"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:42.294643" elapsed="0.071701"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:42.293694" elapsed="0.072699"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.367056" elapsed="0.010535"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.377761" elapsed="0.010940"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:42.389055" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.388874" elapsed="0.031839"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:42.366836" elapsed="0.053989"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:42.366550" elapsed="0.054324"/>
+</kw>
+<kw name="Verify Item Is In Bought Section" owner="shopping_mode_page">
+<kw name="Get Bought Item By Name" owner="shopping_mode_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:42.421659" level="INFO">${locator} = xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "${item_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:42.421523" elapsed="0.000160"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:42.421730" elapsed="0.000048"/>
+</return>
+<msg time="2026-02-10T22:09:42.421863" level="INFO">${locator} = xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]</msg>
+<var>${locator}</var>
+<arg>${item_name}</arg>
+<doc>Retorna locator do item comprado pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:42.421316" elapsed="0.000565"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:52.540924" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-10T22:09:52.541109" level="FAIL">Element with locator 'xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]' not found.</msg>
+<arg>${locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-02-10T22:09:42.421965" elapsed="10.120094">Element with locator 'xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]' not found.</status>
+</kw>
+<arg>Feijão</arg>
+<doc>Verifica se item está na seção de comprados</doc>
+<status status="FAIL" start="2026-02-10T22:09:42.421034" elapsed="10.121255">Element with locator 'xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]' not found.</status>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:52.542874" elapsed="0.093780"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:52.542591" elapsed="0.094175"/>
+</kw>
+<doc>Itens comprados devem estar na seção correta</doc>
+<tag>items</tag>
+<tag>shopping-mode</tag>
+<status status="FAIL" start="2026-02-10T22:09:39.865418" elapsed="12.771403">Element with locator 'xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]' not found.</status>
+</test>
+<test id="s1-s1-s1-t11" name="Should Show Correct Pending Items Count" line="107">
+<kw name="Setup Test With Sample Data" owner="common">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:52.642118" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:52.641933" elapsed="1.391285"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.034062" elapsed="0.356500"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.391001" elapsed="0.001477"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:52.641651" elapsed="1.750983"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.394012" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.393489" elapsed="0.004539"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:54.392906" elapsed="0.005221"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:54.398667" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.398526" elapsed="0.000169"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.399113" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.398807" elapsed="0.003337"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:54.398289" elapsed="0.003929"/>
+</kw>
+<kw name="Set Sample Lists In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:54.402628" level="INFO">${lists_json} = [{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</msg>
+<var>${lists_json}</var>
+<arg>[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.402533" elapsed="0.000115"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.402956" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_lists', '[{"id": "list-1", "nome": "Lista de Compras"}, {"id": "list-2", "nome": "Lista do Mês"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_LISTS}', '${lists_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.402730" elapsed="0.002694"/>
+</kw>
+<doc>Define listas de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:54.402341" elapsed="0.003146"/>
+</kw>
+<kw name="Set Sample Items In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:54.405838" level="INFO">${items_json} = [{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nom...</msg>
+<var>${items_json}</var>
+<arg>[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.405744" elapsed="0.000116"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.406245" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_items', '[{"id": "item-1", "list_id": "list-1", "nome": "Arroz", "status": "pendente"}, {"id": "item-2", "list_id": "list-1", "nome": "Feijão", "status": "comprado"}, {"id": "item-3", "list_id": "list-2", "nome": "Leite", "status": "pendente"}]');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_ITEMS}', '${items_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.405982" elapsed="0.002697"/>
+</kw>
+<doc>Define itens de exemplo no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:54.405589" elapsed="0.003144"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.408818" elapsed="0.036479"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.445466" elapsed="0.006885"/>
+</kw>
+<doc>Configura teste com dados de exemplo</doc>
+<status status="PASS" start="2026-02-10T22:09:52.641414" elapsed="1.811037"/>
+</kw>
+<kw name="Click On List To Open Details" owner="lists_page">
+<kw name="Get List Card By Name" owner="lists_page">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:54.453525" level="INFO">${locator} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${locator}</var>
+<arg>xpath://div[@data-testid="list-card" and .//p[contains(text(), "${list_name}")]]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.453264" elapsed="0.000319"/>
+</kw>
+<return>
+<value>${locator}</value>
+<status status="PASS" start="2026-02-10T22:09:54.453751" elapsed="0.000105"/>
+</return>
+<msg time="2026-02-10T22:09:54.454077" level="INFO">${card} = xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]</msg>
+<var>${card}</var>
+<arg>${list_name}</arg>
+<doc>Retorna o locator do card da lista pelo nome</doc>
+<status status="PASS" start="2026-02-10T22:09:54.452888" elapsed="0.001214"/>
+</kw>
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.454663" elapsed="0.013364"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.468171" elapsed="0.014887"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.483384" level="INFO">Clicking element 'xpath://div[@data-testid="list-card" and .//p[contains(text(), "Lista de Compras")]]//p[@data-testid="list-card-name"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.483203" elapsed="0.042646"/>
+</kw>
+<arg>${card}//p[@data-testid="list-card-name"]</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:54.454207" elapsed="0.071790"/>
+</kw>
+<arg>Lista de Compras</arg>
+<doc>Clica na lista para abrir detalhes</doc>
+<status status="PASS" start="2026-02-10T22:09:54.452618" elapsed="0.073940"/>
+</kw>
+<kw name="Click Shopping Mode Button" owner="list_detail_page">
+<kw name="Click Element When Ready" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.527252" elapsed="0.010964"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.538381" elapsed="0.010961"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:54.549652" level="INFO">Clicking element 'css:[data-testid="shopping-mode-button"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:54.549480" elapsed="0.031631"/>
+</kw>
+<arg>${SHOPPING_MODE_BUTTON}</arg>
+<doc>Clica em elemento quando estiver pronto</doc>
+<status status="PASS" start="2026-02-10T22:09:54.527039" elapsed="0.054179"/>
+</kw>
+<doc>Clica no botão modo compra</doc>
+<status status="PASS" start="2026-02-10T22:09:54.526782" elapsed="0.054487"/>
+</kw>
+<kw name="Verify Pending Items Count" owner="shopping_mode_page">
+<kw name="Get Pending Items Count" owner="shopping_mode_page">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<kw name="Get Element Count" owner="common">
+<msg time="2026-02-10T22:09:54.602653" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.602400" elapsed="0.000289">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604062" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.602233" elapsed="0.001853">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604195" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.602064" elapsed="0.002151">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604315" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601904" elapsed="0.002429">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604429" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601730" elapsed="0.002717">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604541" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601557" elapsed="0.003003">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604654" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601387" elapsed="0.003286">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604766" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601221" elapsed="0.003564">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.604877" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.601058" elapsed="0.003838">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605010" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.600761" elapsed="0.004288">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605167" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.600547" elapsed="0.004638">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605295" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.600388" elapsed="0.004925">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605403" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.600225" elapsed="0.005195">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605509" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.600059" elapsed="0.005468">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605616" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599897" elapsed="0.005738">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605723" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599732" elapsed="0.006008">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605826" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599561" elapsed="0.006283">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.605930" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599398" elapsed="0.006549">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606038" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599238" elapsed="0.006828">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606154" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.599070" elapsed="0.007102">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606261" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.598901" elapsed="0.007378">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606363" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.598740" elapsed="0.007640">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606490" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.598499" elapsed="0.008015">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.606674" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.598184" elapsed="0.008577">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607052" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.598002" elapsed="0.009080">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607188" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597838" elapsed="0.009370">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607309" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597666" elapsed="0.009662">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607413" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597500" elapsed="0.009932">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607519" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597332" elapsed="0.010206">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607631" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597166" elapsed="0.010484">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607732" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.597003" elapsed="0.010746">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607829" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.596840" elapsed="0.011007">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.607926" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.596675" elapsed="0.011269">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608024" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.596384" elapsed="0.011663">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608124" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.596222" elapsed="0.011920">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608248" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.596022" elapsed="0.012247">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608366" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.595707" elapsed="0.012710">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608545" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.595473" elapsed="0.013090">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608641" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.595301" elapsed="0.013358">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608738" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593991" elapsed="0.014766">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608837" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593827" elapsed="0.015029">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.608942" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593654" elapsed="0.015307">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609042" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593485" elapsed="0.015575">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609133" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593321" elapsed="0.015830">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609224" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.593152" elapsed="0.016090">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609314" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.592990" elapsed="0.016342">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609404" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.592829" elapsed="0.016592">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609492" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.592668" elapsed="0.016840">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.609582" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.592502" elapsed="0.017097">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610090" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.592220" elapsed="0.017896">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610195" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591975" elapsed="0.018249">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610350" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591795" elapsed="0.018574">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610438" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591627" elapsed="0.018829">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610525" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591458" elapsed="0.019084">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610610" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591294" elapsed="0.019334">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610695" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.591127" elapsed="0.019585">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610778" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.590949" elapsed="0.019846">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610861" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.590772" elapsed="0.020106">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.610941" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.590581" elapsed="0.020378">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611023" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.590396" elapsed="0.020644">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611103" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.590058" elapsed="0.021062">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611183" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.589750" elapsed="0.021450">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611605" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.589526" elapsed="0.022103">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611703" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.589167" elapsed="0.022568">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611824" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588934" elapsed="0.022908">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611905" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588760" elapsed="0.023162">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.611985" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588579" elapsed="0.023423">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612064" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588408" elapsed="0.023673">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612147" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588236" elapsed="0.023927">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612223" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.588061" elapsed="0.024179">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612298" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587884" elapsed="0.024431">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612373" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587720" elapsed="0.024670">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612447" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587552" elapsed="0.024912">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587378" elapsed="0.025160">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612594" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587203" elapsed="0.025408">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612675" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.587013" elapsed="0.025680">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612771" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.586678" elapsed="0.026143">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612899" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.586437" elapsed="0.026480">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.612972" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.586258" elapsed="0.026732">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613044" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.586091" elapsed="0.026969">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613113" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.585914" elapsed="0.027216">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613182" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.585719" elapsed="0.027480">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613253" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.585519" elapsed="0.027750">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613319" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.585276" elapsed="0.028060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.613392" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.584953" elapsed="0.028455">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614029" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.584785" elapsed="0.029266">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614122" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.584615" elapsed="0.029527">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614198" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.584439" elapsed="0.029777">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614271" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.584264" elapsed="0.030024">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614368" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.583946" elapsed="0.030448">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614450" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.583429" elapsed="0.031062">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614610" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.583129" elapsed="0.031499">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614680" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.582786" elapsed="0.031911">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614746" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.582619" elapsed="0.032145">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614811" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.582451" elapsed="0.032377">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614877" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.582280" elapsed="0.032613">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.614941" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${locator}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.582104" elapsed="0.032855">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.615006" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<arg>${SHOPPING_ITEM_PENDING}</arg>
+<doc>Retorna quantidade de elementos</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.581908" elapsed="0.033115">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.615074" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<var>${count}</var>
+<doc>Retorna quantidade de itens pendentes</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.581717" elapsed="0.033374">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2026-02-10T22:09:54.615216" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<arg>1</arg>
+<doc>Verifica quantidade de itens pendentes</doc>
+<status status="FAIL" start="2026-02-10T22:09:54.581425" elapsed="0.033812">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<errors>
+<msg time="2026-02-10T22:09:54.615524" level="ERROR">Maximum limit of started keywords and control structures exceeded.
+
+Try --help for usage information.</msg>
+</errors>
+</robot>

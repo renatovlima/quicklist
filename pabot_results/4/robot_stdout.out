@@ -1,0 +1,521 @@
+==============================================================================
+Tests                                                                         
+==============================================================================
+Tests.Shopping Mode                                                           
+==============================================================================
+Tests.Shopping Mode.Shopping Mode Tests :: Testes da tela de Modo Compra do...
+==============================================================================
+Shopping Mode Should Display Header :: Verifica se o header está e... | PASS |
+------------------------------------------------------------------------------
+Shopping Mode Should Display Title :: Verifica se o título está co... | PASS |
+------------------------------------------------------------------------------
+Shopping Mode Should Display Back Button :: Verifica se o botão vo...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:35
+    T:  Shopping Mode Should Display Back Button    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:41
+      Verify Back Button Is Displayed    
+______________________________________________________________________________
+| FAIL |
+Multiple keywords with name 'Verify Back Button Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Back Button Is Displayed
+    shopping_mode_page.Verify Back Button Is Displayed
+------------------------------------------------------------------------------
+Shopping Mode Should Display Progress Bar :: Verifica se a barra d...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:43
+    T:  Shopping Mode Should Display Progress Bar    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:49
+      Verify Progress Bar Is Displayed    
+______________________________________________________________________________
+| FAIL |
+Multiple keywords with name 'Verify Progress Bar Is Displayed' found. Give the full name of the keyword you want to use:
+    list_detail_page.Verify Progress Bar Is Displayed
+    shopping_mode_page.Verify Progress Bar Is Displayed
+------------------------------------------------------------------------------
+Shopping Mode Should Display Pending Section :: Verifica se a seçã... | PASS |
+------------------------------------------------------------------------------
+Shopping Mode Should Display Bought Section :: Verifica se a seção... | PASS |
+------------------------------------------------------------------------------
+Pending Section Should Show Correct Title :: Seção de pendentes de...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:71
+    T:  Pending Section Should Show Correct Title    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:77
+      Verify Pending Section Title    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:93
+      Element Should Contain Text    ${PENDING_SECTION_TITLE}    Pendentes
+      |  ${PENDING_SECTION_TITLE} = css:[data-testid="pending-section-title"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:171
+      Element Should Contain    ${locator}    ${text}
+      |  ${locator} = css:[data-testid="pending-section-title"] (str)
+      |  ${text} = Pendentes (str)
+______________________________________________________________________________
+| FAIL |
+Element 'css:[data-testid="pending-section-title"]' should have contained text 'Pendentes' but its text was 'PENDENTES'.
+------------------------------------------------------------------------------
+Bought Section Should Show Correct Title :: Seção de comprados dev...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:79
+    T:  Bought Section Should Show Correct Title    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:85
+      Verify Bought Section Title    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:101
+      Element Should Contain Text    ${BOUGHT_SECTION_TITLE}    Comprados
+      |  ${BOUGHT_SECTION_TITLE} = css:[data-testid="bought-section-title"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:171
+      Element Should Contain    ${locator}    ${text}
+      |  ${locator} = css:[data-testid="bought-section-title"] (str)
+      |  ${text} = Comprados (str)
+______________________________________________________________________________
+| FAIL |
+Element 'css:[data-testid="bought-section-title"]' should have contained text 'Comprados' but its text was 'COMPRADOS'.
+------------------------------------------------------------------------------
+Pending Items Should Be In Pending Section :: Itens pendentes deve...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:91
+    T:  Pending Items Should Be In Pending Section    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:97
+      Verify Item Is In Pending Section    Arroz
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:149
+      Element Should Be Visible    ${locator}
+      |  ${locator} = xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://div[@data-testid="shopping-item-pending" and .//span[contains(text(), "Arroz")]]' not found.
+------------------------------------------------------------------------------
+Bought Items Should Be In Bought Section :: Itens comprados devem ...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:99
+    T:  Bought Items Should Be In Bought Section    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:105
+      Verify Item Is In Bought Section    Feijão
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:155
+      Element Should Be Visible    ${locator}
+      |  ${locator} = xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://div[@data-testid="shopping-item-bought" and .//span[contains(text(), "Feijão")]]' not found.
+------------------------------------------------------------------------------
+Should Show Correct Pending Items Count :: Deve mostrar contagem c...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:107
+    T:  Should Show Correct Pending Items Count    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/shopping_mode/shopping_mode_tests.robot:113
+      Verify Pending Items Count    1
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:120
+      Get Pending Items Count    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/shopping_mode_page.resource:109
+      Get Element Count    ${SHOPPING_ITEM_PENDING}
+      |  ${SHOPPING_ITEM_PENDING} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="shopping-item-pending"] (str)
+______________________________________________________________________________

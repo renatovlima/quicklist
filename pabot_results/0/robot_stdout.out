@@ -1,0 +1,430 @@
+==============================================================================
+Tests                                                                         
+==============================================================================
+Tests.List Detail                                                             
+==============================================================================
+Tests.List Detail.List Detail Tests :: Testes da tela de Detalhes da Lista ...
+==============================================================================
+List Detail Screen Should Display Header With List Name :: Verific... | PASS |
+------------------------------------------------------------------------------
+List Detail Screen Should Display Back Button :: Verifica se o bot... | PASS |
+------------------------------------------------------------------------------
+List Detail Screen Should Display Shopping Mode Button :: Verifica... | PASS |
+------------------------------------------------------------------------------
+List Detail Screen Should Display Progress Bar :: Verifica se a ba... | PASS |
+------------------------------------------------------------------------------
+List Detail Screen Should Display Quick Add Section :: Verifica se... | PASS |
+------------------------------------------------------------------------------
+Empty List Should Show Empty State Message :: Lista vazia deve mos... | PASS |
+------------------------------------------------------------------------------
+User Should Be Able To Add Item Via Quick Add :: Verifica adição d... | PASS |
+------------------------------------------------------------------------------
+User Should Be Able To Add Item By Pressing Enter :: Verifica adiç... | PASS |
+------------------------------------------------------------------------------
+Quick Add Input Should Clear After Adding Item :: Input deve limpa... | PASS |
+------------------------------------------------------------------------------
+User Should Be Able To Add Multiple Items :: Verifica adição de mú...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/list_detail/list_detail_tests.robot:97
+    T:  User Should Be Able To Add Multiple Items    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/list_detail/list_detail_tests.robot:106
+      Verify Item Count    3
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/pages/list_detail_page.resource:179
+      Get Element Count    ${ITEM_CARD}
+      |  ${ITEM_CARD} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/renatolima/repo_visual/tests/resources/common.resource:180
+      Get Element Count    ${locator}
+      |  ${locator} = css:[data-testid="item-card"] (str)
+______________________________________________________________________________

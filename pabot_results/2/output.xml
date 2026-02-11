@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.14.3 on darwin)" generated="2026-02-10T22:08:40.902763" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/Users/renatolima/repo_visual/tests">
+<suite id="s1-s1" name="Login" source="/Users/renatolima/repo_visual/tests/login">
+<suite id="s1-s1-s1" name="Login Tests" source="/Users/renatolima/repo_visual/tests/login/login_tests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-10T22:08:41.090161" level="INFO">Iniciando testes de Login</msg>
+<arg>Iniciando testes de Login</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-10T22:08:41.089947" elapsed="0.000285"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Login Screen Should Display Logo" line="19">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:41.091839" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:41.091600" elapsed="3.468764"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:44.571730" elapsed="0.603211"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.175254" elapsed="0.002279"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:41.091255" elapsed="4.086883"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:45.187717" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.179063" elapsed="0.091411"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:45.178519" elapsed="0.092105"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.276250" elapsed="0.150974"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:41.090938" elapsed="4.336451"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.428219" elapsed="0.199551"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:45.797209" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.628054" elapsed="0.169257"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.606350" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:45.797521" elapsed="0.808966"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:45.427752" elapsed="1.178874"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.723951" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.606907" elapsed="0.117153"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.724822" elapsed="0.206078"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:46.724446" elapsed="0.206616"/>
+</kw>
+<doc>Verifica se o logo está visível na tela de login</doc>
+<tag>login</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:41.090405" elapsed="5.840749"/>
+</test>
+<test id="s1-s1-s1-t2" name="Login Screen Should Display App Title" line="25">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:46.934144" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:46.933850" elapsed="2.870574"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:49.805607" elapsed="0.522956"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.329227" elapsed="0.002016"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:46.933434" elapsed="3.397963"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.332816" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.332278" elapsed="0.007780"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:50.331684" elapsed="0.008518"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.340402" elapsed="0.117433"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:46.932958" elapsed="3.526165"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.460833" elapsed="0.055846"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.546798" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.517475" elapsed="0.029478"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.579822" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.547260" elapsed="0.032688"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:50.459571" elapsed="0.120726"/>
+</kw>
+<kw name="Verify Login Title" owner="login_page">
+<kw name="Element Should Contain Text" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.589653" elapsed="0.020527"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.633681" level="INFO">Element 'css:[data-testid="login-title"]' contains text 'QuickList'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.610668" elapsed="0.023149"/>
+</kw>
+<arg>${LOGIN_TITLE}</arg>
+<arg>QuickList</arg>
+<doc>Verifica se elemento contém texto</doc>
+<status status="PASS" start="2026-02-10T22:08:50.581450" elapsed="0.052494"/>
+</kw>
+<doc>Verifica o título do login</doc>
+<status status="PASS" start="2026-02-10T22:08:50.580644" elapsed="0.053372"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.635222" elapsed="0.121743"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:50.634377" elapsed="0.122743"/>
+</kw>
+<doc>Verifica se o título QuickList está exibido</doc>
+<tag>login</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:46.932238" elapsed="3.824969"/>
+</test>
+<test id="s1-s1-s1-t3" name="Login Screen Should Display Subtitle" line="31">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:50.759129" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:50.758894" elapsed="2.039675"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:52.799489" elapsed="0.567453"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.367314" elapsed="0.001992"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:50.758614" elapsed="2.610883"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.371243" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.370497" elapsed="0.006254"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:53.369874" elapsed="0.007014"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.377046" elapsed="0.043010"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:50.758264" elapsed="2.662041"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.421226" elapsed="0.030034"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.467677" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.451550" elapsed="0.016255"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.483356" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.468039" elapsed="0.015439"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:53.420658" elapsed="0.062936"/>
+</kw>
+<kw name="Verify Login Subtitle Is Displayed" owner="login_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.501403" level="INFO">Element 'css:[data-testid="login-subtitle"]' is displayed.</msg>
+<arg>${LOGIN_SUBTITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.484317" elapsed="0.017230"/>
+</kw>
+<doc>Verifica se o subtítulo está exibido</doc>
+<status status="PASS" start="2026-02-10T22:08:53.483873" elapsed="0.017820"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.502409" elapsed="0.095887"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:53.502036" elapsed="0.096403"/>
+</kw>
+<doc>Verifica se o subtítulo está exibido</doc>
+<tag>login</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:50.757668" elapsed="2.840841"/>
+</test>
+<test id="s1-s1-s1-t4" name="Login Screen Should Display Google Sign In Button" line="37">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:53.600214" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:53.599982" elapsed="1.811498"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.412264" elapsed="0.378452"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.790960" elapsed="0.000976"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:53.599706" elapsed="2.192328"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.792787" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.792442" elapsed="0.003478"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:55.792202" elapsed="0.003811"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.796115" elapsed="0.034871"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:53.599397" elapsed="2.231793"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.832070" elapsed="0.015450"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.859956" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.847736" elapsed="0.012395"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:55.871854" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.860353" elapsed="0.011619"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:55.831703" elapsed="0.040463"/>
+</kw>
+<kw name="Verify Google Sign In Button Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${GOOGLE_SIGN_IN_DIV}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:55.873063" elapsed="0.436413"/>
+</kw>
+<doc>Verifica se o botão de login do Google está presente</doc>
+<status status="PASS" start="2026-02-10T22:08:55.872654" elapsed="0.436951"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:56.310114" elapsed="0.083707"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:56.309842" elapsed="0.084096"/>
+</kw>
+<doc>Verifica se o botão de login do Google está presente</doc>
+<tag>login</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-10T22:08:53.598894" elapsed="2.795099"/>
+</test>
+<test id="s1-s1-s1-t5" name="Successful Login Should Redirect To Lists Screen" line="47">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:56.395300" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:56.395119" elapsed="1.910025"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.306691" elapsed="0.360832"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.667795" elapsed="0.001055"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:56.394921" elapsed="2.274036"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:58.669830" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.669429" elapsed="0.003617"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:58.669158" elapsed="0.003953"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.673207" elapsed="0.009675"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:56.394685" elapsed="2.288323"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.684700" elapsed="0.035896"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:58.731815" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.720799" elapsed="0.011089"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:58.742592" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.732033" elapsed="0.010678"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:08:58.683982" elapsed="0.058810"/>
+</kw>
+<kw name="Simulate Successful Google Login" owner="login_page">
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:08:58.743517" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.743373" elapsed="0.000167"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:58.744081" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.743660" elapsed="0.002990"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:08:58.743185" elapsed="0.003533"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.746810" elapsed="0.024561"/>
+</kw>
+<doc>Simula login bem sucedido do Google (para testes)</doc>
+<status status="PASS" start="2026-02-10T22:08:58.742940" elapsed="0.028535"/>
+</kw>
+<kw name="Verify Redirect To Lists After Login" owner="login_page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.772138" elapsed="0.006654"/>
+</kw>
+<doc>Verifica redirecionamento para listas após login</doc>
+<status status="PASS" start="2026-02-10T22:08:58.771705" elapsed="0.007173"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.779270" elapsed="0.080550"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:08:58.779065" elapsed="0.080861"/>
+</kw>
+<doc>Verifica redirecionamento após login bem sucedido</doc>
+<tag>auth</tag>
+<tag>login</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-02-10T22:08:56.394299" elapsed="2.465678"/>
+</test>
+<test id="s1-s1-s1-t6" name="User Data Should Be Stored In LocalStorage After Login" line="54">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:08:58.861431" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:08:58.861268" elapsed="1.425289"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.287326" elapsed="0.345939"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.633458" elapsed="0.000870"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:08:58.861070" elapsed="1.773364"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.635167" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.634834" elapsed="0.003102"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:00.634596" elapsed="0.003435"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.638141" elapsed="0.032773"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:08:58.860839" elapsed="1.810274"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.672651" elapsed="0.015653"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.699813" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.688504" elapsed="0.011386"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.711052" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.700034" elapsed="0.011169"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:00.672203" elapsed="0.039200"/>
+</kw>
+<kw name="Simulate Successful Google Login" owner="login_page">
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:00.712530" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.712358" elapsed="0.000199"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.712990" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.712661" elapsed="0.007008"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:00.711969" elapsed="0.007876"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.719999" elapsed="0.031193"/>
+</kw>
+<doc>Simula login bem sucedido do Google (para testes)</doc>
+<status status="PASS" start="2026-02-10T22:09:00.711684" elapsed="0.039641"/>
+</kw>
+<kw name="Get Local Storage Value" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.752712" level="INFO">Executing JavaScript:
+return localStorage.getItem('ql_user');
+Without any arguments.</msg>
+<msg time="2026-02-10T22:09:00.756348" level="INFO">${value} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${value}</var>
+<arg>return localStorage.getItem('${key}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.752320" elapsed="0.004067"/>
+</kw>
+<return>
+<value>${value}</value>
+<status status="PASS" start="2026-02-10T22:09:00.756474" elapsed="0.000142"/>
+</return>
+<msg time="2026-02-10T22:09:00.756847" level="INFO">${user_data} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_data}</var>
+<arg>${LS_USER}</arg>
+<doc>Obtém valor do localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:00.751541" elapsed="0.005365"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-10T22:09:00.757506" level="INFO">Length is 93.</msg>
+<arg>${user_data}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.757129" elapsed="0.000428"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${user_data}</arg>
+<arg>test-user-123</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.757664" elapsed="0.000133"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.758147" elapsed="0.081778"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:00.757962" elapsed="0.082088"/>
+</kw>
+<doc>Verifica se dados do usuário são armazenados no localStorage</doc>
+<tag>auth</tag>
+<tag>login</tag>
+<tag>storage</tag>
+<status status="PASS" start="2026-02-10T22:08:58.860449" elapsed="1.979651"/>
+</test>
+<test id="s1-s1-s1-t7" name="Authenticated User Should Be Redirected To Lists" line="67">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:00.841788" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:00.841618" elapsed="1.690256"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.532600" elapsed="0.343516"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.876518" elapsed="0.001647"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:00.841408" elapsed="2.036939"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:02.879578" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.879031" elapsed="0.004592"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:02.878632" elapsed="0.005138"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.883877" elapsed="0.008596"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:09:00.841148" elapsed="2.051574"/>
+</kw>
+<kw name="Set Mock User In LocalStorage" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-10T22:09:02.894170" level="INFO">${user_json} = {"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</msg>
+<var>${user_json}</var>
+<arg>{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.893907" elapsed="0.000354"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:02.895179" level="INFO">Executing JavaScript:
+localStorage.setItem('ql_user', '{"id": "test-user-123", "name": "Usuário Teste", "email": "teste@example.com", "picture": ""}');
+Without any arguments.</msg>
+<arg>localStorage.setItem('${LS_USER}', '${user_json}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.894491" elapsed="0.027972"/>
+</kw>
+<doc>Define usuário mock no localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:02.893273" elapsed="0.029522"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.923038" elapsed="0.031455"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[data-testid="lists-screen"]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.954784" elapsed="0.007276"/>
+</kw>
+<kw name="Verify Lists Screen Is Displayed" owner="lists_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTS_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.962527" elapsed="0.011896"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:02.985386" level="INFO">Element 'css:[data-testid="header"]' is displayed.</msg>
+<arg>${LISTS_HEADER}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.974596" elapsed="0.010863"/>
+</kw>
+<doc>Verifica se a tela de listas está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:02.962267" elapsed="0.023370"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:02.986130" elapsed="0.088862"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:02.985886" elapsed="0.089208"/>
+</kw>
+<doc>Usuário autenticado deve ser redirecionado para listas</doc>
+<tag>auth</tag>
+<tag>login</tag>
+<tag>redirect</tag>
+<status status="PASS" start="2026-02-10T22:09:00.840424" elapsed="2.234723"/>
+</test>
+<test id="s1-s1-s1-t8" name="Unauthenticated User Should See Login Screen" line="75">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:03.076505" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:03.076333" elapsed="1.664687"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:04.741600" elapsed="0.347566"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.089358" elapsed="0.000853"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:03.076084" elapsed="2.014215"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:05.091032" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.090696" elapsed="0.003275"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:05.090458" elapsed="0.003594"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.094155" elapsed="0.031351"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:09:03.075776" elapsed="2.049836"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:05.127126" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.126406" elapsed="0.002861"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:05.125914" elapsed="0.003432"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.129453" elapsed="0.024434"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.154597" elapsed="0.015286"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:05.181540" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.170068" elapsed="0.011552"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:05.191935" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.181770" elapsed="0.010242"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:05.154189" elapsed="0.037908"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.192936" elapsed="0.079975"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:05.192310" elapsed="0.080702"/>
+</kw>
+<doc>Usuário não autenticado deve ver tela de login</doc>
+<tag>auth</tag>
+<tag>login</tag>
+<status status="PASS" start="2026-02-10T22:09:03.075419" elapsed="2.197644"/>
+</test>
+<test id="s1-s1-s1-t9" name="Login Screen Should Have Mobile Layout" line="86">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:05.274297" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:05.274130" elapsed="1.435217"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:06.709723" elapsed="0.342189"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.052340" elapsed="0.001600"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:05.273896" elapsed="1.780198"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.055297" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.054775" elapsed="0.004685"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:07.054371" elapsed="0.005240"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.059770" elapsed="0.010069"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:09:05.273675" elapsed="1.796437"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.070451" elapsed="0.339012"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.410483" elapsed="0.040403"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.461894" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.451068" elapsed="0.010907"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.472320" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.462122" elapsed="0.010266"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:07.409952" elapsed="0.062522"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.480315" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.472596" elapsed="0.007791"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.488957" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.480539" elapsed="0.008562"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.489910" elapsed="0.082456"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:07.489568" elapsed="0.082897"/>
+</kw>
+<doc>Verifica layout mobile da tela de login</doc>
+<tag>login</tag>
+<tag>responsive</tag>
+<status status="PASS" start="2026-02-10T22:09:05.273330" elapsed="2.299182"/>
+</test>
+<test id="s1-s1-s1-t10" name="Login Screen Should Center Content" line="94">
+<kw name="Setup Test With Clean State" owner="common" type="SETUP">
+<kw name="Open Browser To QuickList" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:07.573698" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-10T22:09:07.573541" elapsed="1.548806"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>812</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.122986" elapsed="0.348243"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.471436" elapsed="0.000855"/>
+</kw>
+<doc>Abre o navegador na aplicação QuickList</doc>
+<status status="PASS" start="2026-02-10T22:09:07.573352" elapsed="1.899031"/>
+</kw>
+<kw name="Clear All Local Storage" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:09.473877" level="INFO">Executing JavaScript:
+localStorage.clear();
+Without any arguments.</msg>
+<arg>localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.473084" elapsed="0.005297"/>
+</kw>
+<doc>Limpa todo o localStorage</doc>
+<status status="PASS" start="2026-02-10T22:09:09.472548" elapsed="0.005987"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.478791" elapsed="0.013826"/>
+</kw>
+<doc>Configura teste com estado limpo (sem dados)</doc>
+<status status="PASS" start="2026-02-10T22:09:07.573125" elapsed="1.919870"/>
+</kw>
+<kw name="Verify Login Screen Is Displayed" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SCREEN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.495815" elapsed="0.048926"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:09.559904" level="INFO">Element 'css:[data-testid="login-logo"]' is displayed.</msg>
+<arg>${LOGIN_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.544975" elapsed="0.015092"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:09.573251" level="INFO">Element 'css:[data-testid="login-title"]' is displayed.</msg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.560313" elapsed="0.013032"/>
+</kw>
+<doc>Verifica se a tela de login está exibida</doc>
+<status status="PASS" start="2026-02-10T22:09:09.494055" elapsed="0.079383"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-02-10T22:09:09.585877" level="INFO">${logo} = mb-6</msg>
+<var>${logo}</var>
+<arg>${LOGIN_LOGO}</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.573598" elapsed="0.012325"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-10T22:09:09.586731" level="INFO">Classes do logo: mb-6</msg>
+<arg>Classes do logo: ${logo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.586306" elapsed="0.000567"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.587601" elapsed="0.081083"/>
+</kw>
+<doc>Fecha o navegador e limpa dados</doc>
+<status status="PASS" start="2026-02-10T22:09:09.587225" elapsed="0.081573"/>
+</kw>
+<doc>Verifica se o conteúdo está centralizado</doc>
+<tag>layout</tag>
+<tag>login</tag>
+<status status="PASS" start="2026-02-10T22:09:07.572795" elapsed="2.096098"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-10T22:09:09.669702" elapsed="0.000169"/>
+</kw>
+<doc>Testes da tela de Login do QuickList
+Cobertura: Exibição de elementos, autenticação Google, redirecionamento</doc>
+<status status="PASS" start="2026-02-10T22:08:40.950534" elapsed="28.719388"/>
+</suite>
+<status status="PASS" start="2026-02-10T22:08:40.949675" elapsed="28.720943"/>
+</suite>
+<status status="PASS" start="2026-02-10T22:08:40.925860" elapsed="28.745259"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">auth</stat>
+<stat pass="1" fail="0" skip="0">layout</stat>
+<stat pass="10" fail="0" skip="0">login</stat>
+<stat pass="1" fail="0" skip="0">redirect</stat>
+<stat pass="1" fail="0" skip="0">responsive</stat>
+<stat pass="4" fail="0" skip="0">smoke</stat>
+<stat pass="1" fail="0" skip="0">storage</stat>
+<stat pass="4" fail="0" skip="0">ui</stat>
+</tag>
+<suite>
+<stat pass="10" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="10" fail="0" skip="0" id="s1-s1" name="Login">Tests.Login</stat>
+<stat pass="10" fail="0" skip="0" id="s1-s1-s1" name="Login Tests">Tests.Login.Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

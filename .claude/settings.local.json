@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx vite build)",
+      "Bash(pip install:*)",
+      "Bash(/Users/renatolima/repo_visual/.venv/bin/pip install:*)",
+      "Bash(.venv/bin/robot:*)",
+      "Bash(source:*)",
+      "Bash(robot:*)"
+    ]
+  }
+}
