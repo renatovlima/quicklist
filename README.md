@@ -1,16 +1,68 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# quicklist
 
-Currently, two official plugins are available:
+Simple shopping/list manager UI built with React + Vite. This repository contains the frontend source, a small in-repo test suite (Robot Framework), and example test artifacts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- React + Vite application scaffold
+- Simple component-based UI in `src/`
+- Robot Framework tests in `tests/` with example result artifacts in `tests/results/`
+- Basic ESLint config and a development server via Vite
 
-## React Compiler
+## Quick start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Prerequisites: Node.js (16+), npm or yarn, and Git.
 
-## Expanding the ESLint configuration
+Install dependencies:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Run the dev server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run tests (Robot Framework):
+
+```bash
+# from repository root
+pytest -q   # if you use pytest-based hooks, otherwise run your Robot commands
+```
+
+## Contributing
+- Make a topic branch for your change: `git checkout -b feat/your-feature`
+- Commit with clear messages and run linters/tests locally
+- Open a pull request against `main` and describe the change
+
+## SSH / Git setup (this repository)
+
+I configured a remote and added an SSH key so you can push using SSH. Typical commands used locally:
+
+```bash
+git config --global user.name "renatovlima"
+git config --global user.email "renatovieira.pe@gmail.com"
+ssh-keygen -t ed25519 -C "renatovieira.pe@gmail.com" -f ~/.ssh/id_ed25519_quicklist
+ssh-add ~/.ssh/id_ed25519_quicklist
+git remote add origin git@github.com:renatovlima/quicklist.git
+git push -u origin main
+```
+
+## License
+
+Add a license file or choose a license that fits your project (e.g., MIT).
+
+## Where to look
+- Application entry: `src/main.jsx`
+- Components: `src/components/`
+- Tests: `tests/`
+
+If you want I can expand this README with screenshots, deploy instructions, or CI setup — tell me what you'd like.
